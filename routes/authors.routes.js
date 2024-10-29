@@ -1,14 +1,16 @@
 const express = require('express');
 // Rutas de productos
-const entriesController = require("../controllers/entries.controller");
+const authorsController = require("../controllers/authors.controller");
 const router = express.Router();
 
+//PARA AUTHORS
+router.get('/', authorsController.getAuthors);
 
 // router.get('/', entriesController.getEntries);   ???¿¿¿
-router.post('/', entriesController.createEntry);
-router.get('/all', entriesController.getAllEntriesWithoutId);
-router.put('/all', entriesController.updateEntry);
-router.delete('/all', entriesController.deleteEntry);
+// router.post('/', entriesController.createEntry);
+// router.get('/all', entriesController.getAllEntriesWithoutId);
+// router.put('/all', entriesController.updateEntry);
+// router.delete('/all', entriesController.deleteEntry);
 
 module.exports = router;
 

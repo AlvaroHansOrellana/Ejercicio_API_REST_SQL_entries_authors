@@ -1,5 +1,6 @@
 const { Pool } = require('pg');
-const queries = require('../queries/entries.queries') // Queries SQL
+const queries = require('../queries/authors.queries') // Queries SQL
+
 
 const pool = new Pool({
     host: 'localhost',
@@ -26,12 +27,12 @@ const getEntriesByEmail = async (email) => {
     return result
 }
 
-//UPDATE TITLE .......................this
+//UPDATE TITLE
 const updateEntry = async (title) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.updateEntry,[title, content, email, category, originalTitle])
+        const data = await client.query(queries.updateEntry,[title, content, email, category])
         result = data.rowCount
     } catch (err) {
         console.log(err);
@@ -110,7 +111,7 @@ const createEntry = async (entry) => {
 
 //DELETE
 
-
+// ! POR AQUI CHECK
 const entries = {
     getEntriesByEmail,
     getAllEntries,
@@ -123,7 +124,7 @@ const entries = {
 module.exports = entries;
 
 
-// ! Pruebas
+// Pruebas
 
     // getEntriesByEmail("birja@thebridgeschool.es")
     //     .then(data=>console.log(data))

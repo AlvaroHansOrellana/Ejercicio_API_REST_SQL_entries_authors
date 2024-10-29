@@ -1,4 +1,4 @@
-const entry = require('../models/entries.model'); // Importar el modelo de la BBDD
+const entry = require('../models/authors.model'); // Importar el modelo de la BBDD
 
 
 // GET http://localhost:3000/entries --> ALL
@@ -49,7 +49,7 @@ const createEntry = async (req, res) => {
     });
 }
 
-
+// ! CHECK HERE TOO
 module.exports = {
     // getEntries,
     createEntry,
