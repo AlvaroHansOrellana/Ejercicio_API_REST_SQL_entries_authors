@@ -1,4 +1,5 @@
 entries QUERIES;
+    getEntriesByEmail:
     SELECT e.title,e.content,e.date,e.category,a.name,a.surname,a.image
     FROM entries AS e
     INNER JOIN authors AS a
@@ -27,6 +28,7 @@ entries QUERIES;
 
     deleteEntry: DELETE FROM entries WHERE title = $1;
 
-authors QUERIES;   <-- NOT SURE HERE -->
+authors QUERIES;   -- NOT SURE HERE
+    getAllAuthorsEntries
     SELECT id_author, a.name, a.surname, a.email, a.image
     FROM authors
